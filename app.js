@@ -85,43 +85,60 @@ function setBgGreet() {
         document.body.style.backgroundSize = "cover";
     }
 }
-// setName
-function setName(e) {
-   
-    if(e.type === "keypress") {
-        
-        if(e.which ==13 || e.keyCode ==13) {
-            localStorage.setItem("name", e.target.innerText)
-            name.blur()
-        }
-    }else {
-        localStorage.setItem("name", e.target.innerText)
-
-    }
-}
-
-
-// Get Name
+// GetName
 function getName() {
-    if(localStorage.getItem("name") === null) {
-        name.textContent = '[Enter Name]'
+    if(localStorage.getItem("name") ===null) {
+        name.textContent = `[Enter Name]`
     }else {
         name.textContent = localStorage.getItem("name")
     }
 }
 // Get Focus
-function getFocus() {
+function getFocus () {
     if(localStorage.getItem("focus") === null) {
         focus.textContent = `[Enter Focus]`
     }else {
         focus.textContent = localStorage.getItem("focus")
     }
 }
+
+// setname
+function setName(e) {
+   if(e.type=== "keypress") {
+        if(e.which ===13 || e.keyCode=="13") {
+            localStorage.setItem("name", e.target.textContent)
+            name.blur()
+        }
+   }else {
+    localStorage.setItem("name", e.target.textContent)
+   }
+}
+
+// getName
+function getName(e) {
+    if(e.type ==="keypress") {
+        if(e.which ==13 || e.keyCode ==13) {
+            localStorage.setItem("focus", e.target.textContent)
+            focus.blur()
+        }
+    }else {
+        localStorage.setItem("focus", e.target.textContent)
+    }
+}
+
+
 document.querySelector("#name").addEventListener("keypress", setName)
 document.querySelector("#name").addEventListener("blur", setName)
+document.querySelector("#focus").addEventListener("keypress", getName)
+document.querySelector("#focus").addEventListener("blur", getName)
 
-// Run
-showTime()
+  // Run
+  showTime();
 setBgGreet()
 getName()
 getFocus()
+setName()
+getName()
+
+
+
