@@ -13,24 +13,29 @@ function showTime() {
     min = today.getMinutes(),
     sec = today.getSeconds();
 
-let leadHour = 0
-let leadMin = 0
-let leadSec = 0
 
-if(sec<10) {
-    sec = `${0}${sec}`
-}else {
-    sec
-}
-if(min<10) {
-    min = `${0}${min}`
-}else {
-    min
-}
-if(hour<10) {
-    hour = `${0}${hour}`
-}else {
-    hour
+    // add zero
+
+// if(sec<10) {
+//     sec = `${0}${sec}`
+// }else {
+//     sec
+// }
+// if(min<10) {
+//     min = `${0}${min}`
+// }else {
+//     min
+// }
+// if(hour<10) {
+//     hour = `${0}${hour}`
+// }else {
+//     hour
+// }
+
+// alternatif zero add
+
+function addZero(n) {
+    return (parseInt(n,10) <10 ? "0": "") + n
 }
 
   // Set AM or PM
@@ -43,12 +48,10 @@ if(hour<10) {
 
   // Output Time
 
-  time.innerHTML = `${hour}:${min}:${sec}`;
+  time.innerHTML = `${hour}:${addZero(min)}:${addZero(sec)}`;
 
   setTimeout(showTime, 1000);
 }
-
-
 
 // setTime Run
 showTime()
