@@ -115,7 +115,7 @@ function setName(e) {
 }
 
 // getName
-function getName(e) {
+function setFocus(e) {
     if(e.type ==="keypress") {
         if(e.which ==13 || e.keyCode ==13) {
             localStorage.setItem("focus", e.target.textContent)
@@ -129,8 +129,8 @@ function getName(e) {
 
 document.querySelector("#name").addEventListener("keypress", setName)
 document.querySelector("#name").addEventListener("blur", setName)
-document.querySelector("#focus").addEventListener("keypress", getName)
-document.querySelector("#focus").addEventListener("blur", getName)
+document.querySelector("#focus").addEventListener("keypress", setFocus)
+document.querySelector("#focus").addEventListener("blur", setFocus)
 
   // Run
   showTime();
@@ -138,7 +138,7 @@ setBgGreet()
 getName()
 getFocus()
 setName()
-getName()
+setFocus()
 
 
 
