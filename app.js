@@ -6,7 +6,8 @@ name = document.querySelector("#name"),
 focus = document.querySelector("#focus");
 
 
-
+// Options
+const showAmPm = true
 // show Time
 
 function showTime() {
@@ -50,7 +51,7 @@ function addZero(n) {
 
   // Output Time
 
-  time.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
+  time.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)} ${showAmPm ? amPm : ""}`;
 
   setTimeout(showTime, 1000);
 }
