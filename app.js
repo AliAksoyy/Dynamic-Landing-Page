@@ -5,6 +5,8 @@ greeting = document.querySelector("#greeting"),
 name = document.querySelector("#name"),
 focus = document.querySelector("#focus");
 
+
+
 // show Time
 
 function showTime() {
@@ -83,6 +85,21 @@ function setBgGreet() {
         document.body.style.backgroundSize = "cover";
     }
 }
+// setName
+function setName(e) {
+   
+    if(e.type === "keypress") {
+        
+        if(e.which ==13 || e.keyCode ==13) {
+            localStorage.setItem("name", e.target.innerText)
+            name.blur()
+        }
+    }else {
+        localStorage.setItem("name", e.target.innerText)
+
+    }
+}
+
 
 // Get Name
 function getName() {
@@ -100,6 +117,8 @@ function getFocus() {
         focus.textContent = localStorage.getItem("focus")
     }
 }
+document.querySelector("#name").addEventListener("keypress", setName)
+document.querySelector("#name").addEventListener("blur", setName)
 
 // Run
 showTime()
