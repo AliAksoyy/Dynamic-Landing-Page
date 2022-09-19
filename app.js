@@ -44,18 +44,46 @@ function addZero(n) {
 
   // 12 Format
 
-  hour = hour % 12 || 12;
+//   hour = hour % 12 || 12;
 
   // Output Time
 
-  time.innerHTML = `${hour}:${addZero(min)}:${addZero(sec)}`;
+  time.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
 
   setTimeout(showTime, 1000);
 }
 
 // set background and greeting
 
+function setBgGreet() {
+    let today = new Date()
+    hour = today.getHours()
+    if(hour<12) {
+        document.body.style.backgroundImage = `url("./img/morning.jpg")`
+        greeting.textContent = "Good Morning"
+        document.body.style.backgroundPosition = "center"
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.color = "white";
 
+
+
+    }else if(hour<18) {
+        document.body.style.backgroundImage = `url("./img/afternoon.jpg")`;
+        greeting.textContent = "Good Afternoon";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+    }else {
+        document.body.style.background = `url("./img/night.jpg")`;
+        greeting.textContent = "Good Night";
+        document.body.style.color = "white"
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+    }
+}
 
 // Run
 showTime()
+setBgGreet()
