@@ -53,5 +53,9 @@ function addZero(n) {
   setTimeout(showTime, 1000);
 }
 
-// setTime Run
+// set background and greeting
+
+
+
+// Run
 showTime()
